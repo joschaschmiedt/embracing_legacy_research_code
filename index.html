@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Embracing legacy research code</title>
+
+		<meta name="description" content="Should we? If so, how?">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+		<!-- User CSS -->
+		<style id="user-css-output" type="text/css">
+			.reveal .monospace-font h1,
+.reveal .monospace-font h2,
+.reveal .monospace-font h3 {
+  font-family: monospace;
+}
+
+		</style>
+	</head>
+	<body class="reveal-viewport theme-font-overpass2 theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-transition="fade" data-id="0c6a6a848bab95763ffc102e78bff2d9" data-background-color="rgb(0, 0, 0)" data-background-image="legacy/02e342aad1fec0fec8966683d2bb99cf.png" data-background-size="contain">
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 741px; left: 197px; top: 130.5px;" data-name="text-926409" data-block-id="85a0aa211ee8c411770da7defbc9a98f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h1><span style="color:#ffffff">Embracing Legacy Research Code</span></h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 267.5px; top: 333px;" data-name="text-a78958" data-block-id="b9885b0d5f1cf3a1c7b95500bfa21302"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);"><h3>Should we? If so, how?</h3></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 267.5px; top: 655px;" data-name="text-9fea8e" data-block-id="3a26a29c7e8b081ec0b15590657bc567"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);"><p>Joscha Schmiedt &amp; Andreas Kreiter</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 121.942px; height: 43.789px; left: 893.058px; top: 12px; min-width: 1px; min-height: 1px;" data-name="image-54ffd5" data-block-id="a3b20c24aa8ebd5845c671b76830cf1f"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="2303" data-natural-height="827" style="" data-lazy-loaded="" data-src="legacy/742bc80a8ad28caf666715fd053edfff.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 867.5px; left: 78.25px; top: 461.5px;" data-name="text-e57f67" data-block-id="c66d7c74cc4e65a78e25edf860deb429"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(255, 255, 255);">
+<p>deRSE23 - Conference for Research Software Engineering in Germany</p>
+
+<p>20-22 Feb 2023 Paderborn (Germany)</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.8398px; height: 45.9695px; left: 779.66px; top: 9.8195px; min-width: 1px; min-height: 1px;" data-name="image-749cba" data-block-id="8dba8da9144e38a4871c28ca206bffff"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/ab4b0bb0c21d36faaf34ea3ec6c7bed6.png"></div></div></section><section data-auto-animate="" data-id="35edc2b4aab383fe36a3f56369474d30">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 402px; left: 406px; top: 175.5px;" data-name="text-cbaa32" data-block-id="cea5ed0ff4abe06cfd69e09ca159aaa1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><ul>
+	<li class="fragment" data-fragment-index="0">old</li>
+	<li class="fragment" data-fragment-index="1">bad?</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><span>written by other people?</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="3">
+	<p><span>untested?</span></p>
+	</li>
+</ul></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="e7ea8ec1551bb73196b8d9fa622cf3f4"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="933733a4fe95b745d7b40aa6c8881b2f"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="e79a39e787716553990cd5e754dfb930"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-cfe8fd" data-block-id="bd4ed33a664212cc1d10fe367a0e3a01" style="width: auto; height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 590.6px 533.79px 0px; z-index: 14;">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 290.6px; top: 696.66px;" data-name="text-9fae21" data-block-id="527893cf347dff820475a0219b374f56"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 54%;" data-fragment-index="4"><p><a href="https://stevenwadejr.com/2021/01/12/legacy-code-should-be-respected-not-hated/" target="_blank"><span><span>https://stevenwadejr.com/2021/01/12/legacy-code-should-be-respected-not-hated</span></span></a></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 505.537px; height: 334.016px; left: 337.722px; top: 350.92px; min-width: 1px; min-height: 1px;" data-name="image-a1f55b" data-block-id="b69af6ab70636dd9beb42384c730252d"><div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="4"><img class="" data-natural-width="1024" data-natural-height="713" data-crop-x="0" data-crop-y="0.022727" data-crop-width="1" data-crop-height="0.948908" style="left: 0px; top: -8px; width: 506px; height: 352px;" data-lazy-loaded="" data-src="legacy/9471e249872abe92a855fecdfa744cf4.jpg"></div></div>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 1004.08px; left: 9.96px; top: 96px;" data-name="text-e101c2" data-block-id="ff974d793c308720899654ba1ca2d98b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><h1>What is legacy code?</h1></div></div></section><section data-auto-animate="" data-id="e75f9ef6987a098f981d213d799c2c6b">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 594px; left: 247.558px; top: 475.16px;" data-name="text-418bd8" data-block-id="6c66a0a9c8eedc9f0e02969099a2aa52"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<blockquote>
+<p><span><span>It’s dirty, it’s crowded, it’s ugly, it’s messy, it’s… old. But (...) it’s there for a reason, </span></span></p>
+
+<p><span><span>we just need to appreciate that reason. </span></span></p>
+</blockquote>
+
+<p><span><span>Steven Wade, 2021</span></span></p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 402px; left: 406px; top: 175.5px;" data-name="text-cbaa32" data-block-id="c8095da516c62841fb5e388b0e06384b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><ul>
+	<li>old</li>
+	<li>bad?</li>
+	<li>
+	<p><span>written by other people?</span></p>
+	</li>
+	<li>
+	<p><span>untested?</span></p>
+	</li>
+</ul></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="fd13a7d1e85c063099e01ea9d848a8a8"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="ceffe4579e45bf710bf684312f8ffea3"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="b7998b578c8d8f1fd3200e81a56fbbfb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 1004.08px; left: 9.96px; top: 96px;" data-name="text-e101c2" data-block-id="489e0e4cdd72bf1b76bd2f1aa2207b7f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><h1>What is legacy code?</h1></div></div></section><section data-auto-animate="" data-id="1614a7445a2f1ece6e1f025b1bc51549">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 594px; left: 247.558px; top: 475.16px;" data-name="text-418bd8" data-block-id="44571717d0813f850098d04638f03226"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<blockquote>
+<p><span><span>It’s dirty, it’s crowded, it’s ugly, it’s messy, it’s… old. But (...) it’s there for a reason, </span></span></p>
+
+<p><span><span>we just need to appreciate that reason. </span></span></p>
+</blockquote>
+
+<p><span><span>Steven Wade, 2021</span></span></p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 402px; left: 406px; top: 175.5px;" data-name="text-cbaa32" data-block-id="3ad4750bfa5a875d0c9140dc8b980b06"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><ul>
+	<li><strong><span>established</span></strong></li>
+	<li>bad?</li>
+	<li>
+	<p><span>written by other people?</span></p>
+	</li>
+	<li>
+	<p><span>untested?</span></p>
+	</li>
+</ul></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="2a64a5005f223197e7e8c3edc905f4fb"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="6b4cdea9414c0895df4545b13310f0e3"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="817d3a0b5d620e2b974fc40fcfc2d15f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 1004.08px; left: 9.96px; top: 96px;" data-name="text-e101c2" data-block-id="20ac220d3ef1cde5ce5ebbb8f3420e2e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><h1>What is legacy code?</h1></div></div></section><section data-auto-animate="" data-id="9ec6cec5befb4e19fa3affc56e779c29">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 402px; left: 406px; top: 175.5px;" data-name="text-cbaa32" data-block-id="0a432b2082f3712372b28d22f0af2e7d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><ul>
+	<li><strong><span>established</span></strong></li>
+	<li>bad?</li>
+	<li>
+	<p><span>written by other people?</span></p>
+	</li>
+	<li>
+	<p><span>untested?</span></p>
+	</li>
+</ul></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="7ebd2214faa9531c49d6d5eef71c471b"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="97a6ff2b854a0f1088096b3cc7434ae6"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 273.08px; top: 599.5px;" data-name="text-917f18" data-block-id="bbc5f3e907fd30c6dfe8fac8b588204a"><a class="sl-block-style" style="z-index: 13;" href="https://www.outsystems.com/blog/posts/decoded-embracing-legacy-code/" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p>Decoded Podcast with Joe Eames, 2021</p></div></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 780px; left: 172.84px; top: 431.5px;" data-name="text-5d4970" data-block-id="4017622d683d21187b484e9ff83bdb28"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: center;"><blockquote>
+<p><span>Key to working successfully with legacy code isn’t skill or code knowledge; it’s </span><strong><span>attitude.</span></strong><span> As a developer, you must be <strong>empathetic </strong>to the developers who came before you</span>﻿.</p>
+</blockquote></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="8b54f0b03b9b25d2aa80641ebc7269d7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 1004.08px; left: 9.96px; top: 96px;" data-name="text-e101c2" data-block-id="b6edd20b68eace344db3fef8a7856e56"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><h1>What is legacy code?</h1></div></div></section><section data-auto-animate="" data-id="e665d1fa56541f7279e6700317e3198d">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 402px; left: 406px; top: 175.5px;" data-name="text-cbaa32" data-block-id="d2c001157284176786a13762f2399087"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><ul>
+	<li><strong><span>established</span></strong></li>
+	<li>bad?</li>
+	<li>
+	<p><span>written by other people?</span></p>
+	</li>
+	<li>
+	<p><span>untested?</span></p>
+	</li>
+</ul></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="34f0e43ec1a038c9ec48139983bebceb"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="69fc0fcb4ea2899a8affba3c27eccd29"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="3f5d3b495caa842d3a2f79f8d97ce3ba"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 1004.08px; left: 9.96px; top: 96px;" data-name="text-e101c2" data-block-id="ec0df5fabfeefc7f9e9ae683a7e39f1a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><h1>What is legacy <em>RESEARCH </em>code?</h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 498px; left: 406px; top: 422px;" data-block-id="2ff35fbe64bc25bd37fdf57207082369" data-name="text-d8cda1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left;"><ul>
+	<li class="fragment" data-fragment-index="0">unprofessional?</li>
+	<li class="fragment" data-fragment-index="1">developed by small teams?</li>
+	<li class="fragment" data-fragment-index="2">using scripted languages?</li>
+	<li class="fragment" data-fragment-index="3">complicated?</li>
+	<li class="fragment" data-fragment-index="4"><strong>written for research!</strong></li>
+</ul></div></div></section><section data-id="9707125f89f4c3a77f15fb88bbd0fc1e" data-auto-animate="" data-auto-animate-restart=""><div class="sl-block" data-block-type="text" style="height: auto; width: 734px; left: 159.88px; top: 111px;" data-name="text-b49c39" data-block-id="4f2c301905358ddbc2736792590d517e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h1>Should we EMBRACE LEGACY RESEARCH CODE?</h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 159.88px; top: 348.5px;" data-name="text-12e083" data-block-id="dfa6ed4640feb7cf263680326a44e647"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<p class="fragment" data-fragment-index="0"><span><strong>Who</strong> wrote/will write the software?<br>
+<strong>Who </strong>uses it?</span></p>
+
+<p class="fragment" data-fragment-index="1"><span><strong>Where</strong> was it written?</span></p>
+
+<p class="fragment" data-fragment-index="1"><span><strong>When</strong> was the software written?</span></p>
+
+<p class="fragment" data-fragment-index="1"><span><strong>Why</strong> was the software written?</span><br>
+<span><strong>Why</strong> does it need to change?</span></p>
+
+<p class="fragment" data-fragment-index="2"><span><strong>What</strong> does the code do and <strong>how</strong>? </span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="510a291e81da6fb5336e690b334837e6"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="9c2bedb8f6d072d6ebb360b1cc2e8dfc"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="5ebd184eafbe95ce620d628eb9d24664"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div></section><section data-id="10b9f8b2790f8e2bd04e078456bc41eb" data-auto-animate="">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 168.84px; top: 80px;" data-name="text-12e083" data-block-id="dcee00182db4da55492ccb1ecee90501"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;">
+<p><span><strong>Who</strong> wrote the software?<br>
+<strong>Who </strong>will write the software?</span></p>
+
+<p><span><strong>Who </strong>uses it?</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="caa174452ab167f9bcabfaea4efb69e4"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/25bd4252486f872301c682e36b8f19f1.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="5e9a1b8b183790a1d778b06426591a25"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/d2efb9a86f341195faca8d32de677d72.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="f65042a078cf55e1410f8563fa56d2a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" data-block-id="b36a4181e6848b38ddec1133af7a2709" style="height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 14;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-block-id="734c49b542a97107827945ea60f4ae35"><div class="sl-block-style" style="z-index: 15; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-block-id="f6dddcee3334f44c551554208bec2115"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-block-id="8acb7daf80f71ee9e1bf492abdf9625f" data-name="text-f4a9fd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p><span>Uh-oh! </span></p></div></div>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 449.41px; left: 76.67px; top: 419.5px;" data-block-id="dee58b5c55b564e20927da652ced4b76" data-name="text-866406"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; background-color: rgba(0, 0, 0, 0); border-width: 1px; padding: 5px; text-align: center; color: rgb(39, 78, 19);">
+<p style="text-align:left">+ cooperating authors</p>
+
+<p style="text-align:left">+ licensed code</p>
+
+<p style="text-align:left">+ few understanding users</p>
+
+<p style="text-align:left">+ experience RSE will take over</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 396.64px; left: 627.36px; top: 419.5px;" data-block-id="811057a4483ffc2a238e184970dcc31e" data-name="text-4cdc33"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; background-color: rgb(255, 255, 255); border-width: 1px; padding: 5px;">
+<p style="text-align:left"><span style="color:#800000">- unvailable authors</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- no license</span></p>
+
+<p style="text-align:left"><span style="color:#800000"><span class="ILfuVd"><span class="hgKElc">- many demanding </span></span>users</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- inexperienced new developer</span></p>
+</div></div></section><section data-id="bacec72fe9a0ef202b906c9240823189">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 168.84px; top: 96.75px;" data-name="text-12e083" data-block-id="65e1a32c6c16a6b1f9e13695e323b361"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><p><span><strong>Where</strong> was it written?</span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="529062ddac6ec1caa9feb3cb45215fdd"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="61675a38e5c75c58bf82b7c69da0e9be"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="47134fdba626d79dcdf9eb7fa4f2a804"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 336.41px; left: 50.94px; top: 395.75px;" data-block-id="5b75c243726066c6a6bd9ef47be338c7" data-name="text-75d1bf"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgba(0, 0, 0, 0); border-width: 1px; padding: 5px; text-align: center; color: rgb(39, 78, 19);">
+<p style="text-align:left">+ version control</p>
+
+<p style="text-align:left">+ single source</p>
+
+<p style="text-align:left">+ clear authorship (CFF)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 282.91px; left: 690.15px; top: 395.75px;" data-block-id="fafed68486493e3e31d04c1270d02cef" data-name="text-e64b83"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgb(255, 255, 255); border-width: 1px; padding: 5px; text-align: center;">
+<p style="text-align: left;"><span style="color:#800000">- no version control</span></p>
+
+<p style="text-align: left;"><span style="color:#800000">- scattered versions</span></p>
+
+<p style="text-align: left;"><span style="color:#800000">- unclear authorship</span></p>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" style="height: auto;" data-block-id="88ff990c491219d73ffa4b34e31ef9d0"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 16;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-origin-id="734c49b542a97107827945ea60f4ae35" data-block-id="3c56aa3e34ff37e53690af71b3f84ae3"><div class="sl-block-style" style="z-index: 17; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-origin-id="f6dddcee3334f44c551554208bec2115" data-block-id="dfb67529fa264c43447ff8d497ff74ce"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-name="text-f4a9fd" data-origin-id="8acb7daf80f71ee9e1bf492abdf9625f" data-block-id="bb898e0989ac6bd0d809aeb1ca4ea752"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><span>Uh-oh! </span></p></div></div>
+</div></div></section><section data-id="e0f62d7f59f82834e86f32831c515784">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 168.84px; top: 94.75px;" data-name="text-12e083" data-block-id="eaf4bc44e779c94eb07bdb7b80d57e7e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><p><span><strong>When</strong> was the software written?</span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="92cc137aac26967a05f2e3a7f520a013"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="7b5459bb31e694c040cbd97c558da6cc"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="f824e260786f877fcf3830f96a4a7705" data-locked="true"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" style="height: auto;" data-block-id="964b2e0b80b7e2e7eee0ca74e98f4e88"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 14;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-block-id="61e1c56f62e985a4bc4909c563810f7a"><div class="sl-block-style" style="z-index: 15; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-block-id="181a5337e4359dbbe3435251973cd155"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-name="text-f4a9fd" data-block-id="8be9388e8e3a74ed3f1d40cb53b24e9f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p><span>Uh-oh! </span></p></div></div>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 108.84px; top: 302px;" data-name="line-80e90e" data-block-id="763dac0b2ad82b9b9c332ae00f287e31"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="844" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="844" height="1" viewbox="0 0 844 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="844" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="844" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 905.48px; top: 307px;" data-name="text-229dd2" data-block-id="c8c6dbdc4a1b0698be9102e3495a1213"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p>1980</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 62.84px; top: 307px;" data-block-id="6d55c1d7859ef77789e84338f7a41e9c" data-name="text-8bf90b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p>2020</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 484px; top: 313px;" data-block-id="f78e63ac423bfc2ad092c498911130cf" data-name="text-cb66fb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;"><p>2000</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 827.02px; top: 382px;" data-block-id="099e50d4bf5c8df6e096b7cd9acc8cc3" data-name="text-0d26d6"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="0"><p><span><span>M</span></span><span><span>otorola 68k Assembly</span></span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 391.77px; top: 482.5px;" data-block-id="f590cbe62dd4643e1709d204033df40b" data-name="text-dfe285"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="5"><p>C++98 / GTK 2</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 185.5px; left: 326.5px; top: 687.5px;" data-block-id="840e9fae293baf1f833454c2731e0286" data-name="text-a25fde"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="6"><p>Python 2.7 / Tk / Django</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224.46px; left: 512px; top: 573.5px;" data-block-id="8f2b3b004fb85ca0f3faab2183f657a8" data-name="text-63c7c2"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="2"><p>Objective C / Carbon</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 827.02px; top: 566.5px;" data-block-id="3996be495507de5312b71844a9b9aabb" data-name="text-5d5a2c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="0"><p>FORTRAN 77</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 268.61px; top: 537.5px;" data-block-id="a1bdb6d71cc3945e68e8e6d6cc9d5a9a" data-name="text-864e0f"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="7"><p><span class="mw-headline">Fortran 2003</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 666.29px; top: 502px;" data-block-id="8e63bb754a7e37a2aac063c3ddc1343c" data-name="text-135a35"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="1"><p>C / WinAPI</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 530.62px; top: 406.5px;" data-block-id="d0801f71b8427a96c79db67374bf69c8" data-name="text-832c57"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="3"><p>C++98 / MFC</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 705.42px; top: 673.5px;" data-block-id="f8b9d9a8973988c59f5abebcc21b8aee" data-name="text-e42b82"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 30; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="1"><p>IDL</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 185.5px; left: 62.84px; top: 679px;" data-block-id="6c6da97d85389b3e2ec5b186e0a066d5" data-name="text-3fbdac"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 31; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="10"><p>Python 3.10 / Flask</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 185.5px; left: 229.58px; top: 605.5px;" data-block-id="b69f7c1ce9eca0a69d41c930a792e14a" data-name="text-1955c2"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 32; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="8"><p>Java / Android 3.0</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 185.5px; left: 444.25px; top: 634.5px;" data-block-id="95f391cafcbfa16065c5c936708c33d7" data-name="text-d01862"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 33; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="4"><p>MATLAB 6.5</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 184.46px; left: 84.15px; top: 444px;" data-block-id="097cce7f6bd0c184138a11e8622997fb" data-name="text-b9f4e5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 34; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="9"><p>C++20 / Qt 5</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 185.5px; left: 16.09px; top: 612.5px;" data-block-id="89a129ade92ba849079f22f06d43bae1" data-name="text-d023d9"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 35; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="12"><p>MATLAB 2021a</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224.46px; left: 3.61px; top: 537.5px;" data-block-id="5b4b63f4095fa71394fe441bb9c6cc84" data-name="text-444351"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 36; border-style: solid; border-width: 1px; border-radius: 17px; border-color: rgb(136, 136, 136); padding: 5px; font-size: 75%;" data-fragment-index="11"><p>Swift / iOS 14</p></div></div></section><section data-id="8119d3f400a76095112b2b5d68c958b8">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 168.84px; top: 94.75px;" data-name="text-12e083" data-block-id="bc0b9cc9c71599a243d282531f28699b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><p><span><strong>When</strong> was the software written?</span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="c972204faac4f20088c1647d03ad708d"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="e52dfe1fa9cad55cbf1dc0d048989acf"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="f53ca1e5665325704aa24b6554e7e48c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" style="height: auto;" data-block-id="c5d169f432f01a3dbf90b3645555da17"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 15;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-block-id="c3ae91d51dc93a1843fffdbc204f0779"><div class="sl-block-style" style="z-index: 16; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-block-id="cc7d67d3751767dccdaf88a6d7bb7a85"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-name="text-f4a9fd" data-block-id="afe10d4e8ca3557de423334510720aa2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;"><p><span>Uh-oh! </span></p></div></div>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 108.84px; top: 302px;" data-name="line-80e90e" data-block-id="8f5c79a54031dd6235b6eb23c1f593aa"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="844" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="844" height="1" viewbox="0 0 844 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="844" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="844" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 905.48px; top: 307px;" data-name="text-229dd2" data-block-id="a41ec301405605ecfb338c203badabd1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p>1980</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 62.84px; top: 307px;" data-name="text-8bf90b" data-block-id="7ce6d92da25c4d70dbf0a324c04e5029"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;"><p>2020</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 484px; top: 313px;" data-name="text-cb66fb" data-block-id="f14cdb32cea162890e32d2556649527f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p>2000</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 539.326px; height: 295.859px; left: 4.844px; top: 472.66px; min-width: 1px; min-height: 1px;" data-name="image-4aa3d8" data-block-id="1714b607d68e08d58ccd5a5ad877bf0b"><div class="sl-block-content fragment" style="z-index: 26;" data-fragment-index="4"><img class="" data-natural-width="1400" data-natural-height="768" style="" data-lazy-loaded="" data-src="legacy/385a572eeb626c69c1d17a56b768c7bb.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 388.389px; height: 294.888px; left: 430.449px; top: 384px; min-width: 1px; min-height: 1px;" data-name="image-2e60aa" data-block-id="58b03a35251b1a1f322f45b7402bf9b1"><div class="sl-block-content fragment" style="z-index: 24;" data-fragment-index="2"><img class="" data-natural-width="648" data-natural-height="492" style="" data-lazy-loaded="" data-src="legacy/a06b07dcba3bd468d8162571084deb4a.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 392.485px; height: 259.32px; left: 663.028px; top: 367.34px; min-width: 1px; min-height: 1px;" data-name="image-37ca8e" data-block-id="59f70216adcac5335b5147718fdbb176"><div class="sl-block-content fragment" style="z-index: 23;" data-fragment-index="1"><img class="" data-natural-width="1200" data-natural-height="900" data-crop-x="0" data-crop-y="0.059524" data-crop-width="1" data-crop-height="0.880952" style="left: 0px; top: -18px; width: 392px; height: 294px;" data-lazy-loaded="" data-src="legacy/0b9cb54b2b69dd2a01769e26a93f52b9.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 465.158px; height: 330.432px; left: 197.87px; top: 424.068px; min-width: 1px; min-height: 1px;" data-name="image-e91990" data-block-id="0b0af98d55e050ae010063f1f84268ed"><div class="sl-block-content fragment" style="z-index: 25;" data-fragment-index="3"><img class="" data-natural-width="656" data-natural-height="466" style="" data-lazy-loaded="" data-src="legacy/fa395054dafe90fc72ec8037f50779e3.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 377.277px; height: 254.662px; left: 726.6px; top: 296.737px; min-width: 1px; min-height: 1px;" data-name="image-5af382" data-block-id="672cc480d407310cda30417f439f43ce"><div class="sl-block-content fragment" style="z-index: 10;" data-fragment-index="0"><img class="" data-natural-width="800" data-natural-height="540" style="" data-lazy-loaded="" data-src="legacy/f95231eb83510d04150628a253320e10.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 430.08px; height: 241.92px; left: 4.844px; top: 359px; min-width: 1px; min-height: 1px;" data-name="image-440351" data-block-id="fd52186ec5dcb667d38766b51bc07691"><div class="sl-block-content fragment" style="z-index: 27;" data-fragment-index="5"><img class="" data-natural-width="1920" data-natural-height="1080" style="" data-lazy-loaded="" data-src="legacy/920c66007a4deec764f02683a270ae14.png"></div></div></section><section data-id="216f8c7bcb0e35079bd133b2d9c65683">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 168.84px; top: 94.75px;" data-name="text-12e083" data-block-id="fdbe1e331ccee155a2d8df51521d7196"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><p><span><strong>When</strong> was the software written?</span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="e6961b7fe4ae2a5623f85ab8302d7688"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="d061b370586cc3ddea5386fbe9f90f52"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="a4f2f1962ec929f85ee1061cba351894"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" style="height: auto;" data-block-id="abe267628c64d413e17f2a5ec5091e9d"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 15;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-block-id="e31e4f45447ffe6db48401901236dc0b"><div class="sl-block-style" style="z-index: 16; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-block-id="3b51570486d41fa23862089f1783144a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-name="text-f4a9fd" data-block-id="0c5ad3aee0aa7e7878ecec3a93fc7553"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;"><p><span>Uh-oh! </span></p></div></div>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 108.84px; top: 302px;" data-name="line-80e90e" data-block-id="0842bdd4eb62b3f838e162059ef74da8"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="844" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="844" height="1" viewbox="0 0 844 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="844" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="844" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 905.48px; top: 307px;" data-name="text-229dd2" data-block-id="c421b142c88260312f55deb20142ed09"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p>1980</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 62.84px; top: 307px;" data-name="text-8bf90b" data-block-id="a92bdf1abc7bec706d69365dd2b70c36"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;"><p>2020</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 106px; left: 484px; top: 313px;" data-name="text-cb66fb" data-block-id="896a5bdae6e3128aa309a2dbd89aa90d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p>2000</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 377.277px; height: 254.662px; left: 726.6px; top: 296.737px; min-width: 1px; min-height: 1px;" data-name="image-5af382" data-block-id="3feb36c309038047492197dfbd7ce161"><div class="sl-block-content fragment" style="z-index: 10;" data-fragment-index="0"><img class="" data-natural-width="800" data-natural-height="540" style="" data-lazy-loaded="" data-src="legacy/f95231eb83510d04150628a253320e10.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 430.08px; height: 241.92px; left: 0px; top: 539.58px; min-width: 1px; min-height: 1px;" data-name="image-440351" data-block-id="f9b02fe60e8b37a32df5928e2afd5032"><div class="sl-block-content fragment" style="z-index: 25;" data-fragment-index="3"><img class="" data-natural-width="1920" data-natural-height="1080" style="" data-lazy-loaded="" data-src="legacy/920c66007a4deec764f02683a270ae14.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 485.057px; height: 237.498px; left: 215.04px; top: 482.399px; min-width: 1px; min-height: 1px;" data-name="image-b40a23" data-block-id="0534115df23a8b81c34ff60509f9c929"><div class="sl-block-content fragment" style="z-index: 24;" data-fragment-index="2"><img class="" data-natural-width="2021" data-natural-height="1073" data-crop-x="0.039322" data-crop-y="0.084906" data-crop-width="0.892535" data-crop-height="0.823113" style="left: -21px; top: -24px; width: 543px; height: 289px;" data-lazy-loaded="" data-src="legacy/aac07ae75d04e4e9397bcf088a5d9f0b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 397.91px; height: 265.273px; left: 445.84px; top: 384px; min-width: 1px; min-height: 1px;" data-name="image-162606" data-block-id="b9362cb4e991af2e497e2d076e82a526"><div class="sl-block-content fragment" style="z-index: 23;" data-fragment-index="1"><img class="" data-natural-width="2025" data-natural-height="1350" data-lazy-loaded="" data-src="legacy/d0442f247dd7991b15b85274d8ab8551.png"></div></div></section><section data-id="cdb1937513c56d34c64245d5929602a0">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 159.88px; top: 90.5px;" data-name="text-12e083" data-block-id="dcee00182db4da55492ccb1ecee90501"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><p><strong>Why </strong>was the software written?</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="caa174452ab167f9bcabfaea4efb69e4"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="5e9a1b8b183790a1d778b06426591a25"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="f65042a078cf55e1410f8563fa56d2a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 449.41px; left: 45.67px; top: 286.75px;" data-block-id="6b6c5bb969110480daa34fd18d7dddf1" data-name="text-1a418e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgba(0, 0, 0, 0); border-width: 1px; padding: 5px; text-align: center; color: rgb(39, 78, 19);">
+<p style="text-align:left">+ to control an experiment</p>
+
+<p style="text-align:left">+ to run complex simulations</p>
+
+<p style="text-align:left">+ to manage research data</p>
+
+<p style="text-align:left">+ ...</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 324.64px; left: 667.06px; top: 286.5px;" data-block-id="32b066fc608dcc8a20a95d316a42e3a3" data-name="text-ee241d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgb(255, 255, 255); border-width: 1px; padding: 5px;">
+<p style="text-align:left"><span style="color:#800000">- because of ignorance</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- for political reasons</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- as a workaround</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- ...</span></p>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" style="height: auto;" data-block-id="839b70333c8a16546da68c7646e973b6"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 16;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-origin-id="734c49b542a97107827945ea60f4ae35" data-block-id="75cc8626216ce740cd79b8b078784e85"><div class="sl-block-style" style="z-index: 17; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-origin-id="f6dddcee3334f44c551554208bec2115" data-block-id="0a190912074e7dcf6370ff5fff6e3369"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-name="text-f4a9fd" data-origin-id="8acb7daf80f71ee9e1bf492abdf9625f" data-block-id="c3f29bff8d3f046249920c2dd36a9660"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><span>Uh-oh! </span></p></div></div>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 474px; left: 321.08px; top: 570px;" data-name="text-cfe9df" data-block-id="66101b3cb62c49bb36726f54e723ad49"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; text-align: left;"><ol>
+	<li>Adding a feature</li>
+	<li>Fixing a bug</li>
+	<li>Improving the design</li>
+	<li>Optimizing resource usage</li>
+</ol></div></div>
+<div class="sl-block" data-block-type="image" style="width: 134.822px; height: 178.336px; left: 159.88px; top: 553.832px; min-width: 1px; min-height: 1px;" data-name="image-cd2f86" data-block-id="174c20579b2f24f59a31ba7ab91b024b"><div class="sl-block-content" style="z-index: 21;"><img class="" data-natural-width="378" data-natural-height="500" style="" data-lazy-loaded="" data-src="legacy/a2792047752e57a60577ad2354a47c95.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 159.88px; top: 499px;" data-block-id="8f9e09b27780a9281eb56b247f7fc739" data-name="text-130866"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; text-align: left;"><p><strong>Why </strong>does it need to change?</p></div></div></section><section data-id="c8299d2ebcdd795f158edc4732bb0dca">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 159.88px; top: 109.5px;" data-name="text-12e083" data-block-id="433d9ce8b031bca393e00701d1a20867"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;"><p><span><strong>What</strong> does the code do and <strong>how</strong>?</span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="a1998ab4348c5a4fb219682d16ab4af7"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="b96dd01da505802479d4953a1b31ecc1"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="757c30f858399cb620b03a2878393e53"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 449.41px; left: 43.67px; top: 314.5px;" data-name="text-1a418e" data-block-id="d37a4f107d3c98a70597b50fce2e3fe1"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgba(0, 0, 0, 0); border-width: 1px; padding: 5px; text-align: center; color: rgb(39, 78, 19);" data-fragment-index="0">
+<p style="text-align:left">+ clean code</p>
+
+<p style="text-align:left">+ clean architecture</p>
+
+<p style="text-align:left">+ few, well-isolated dependencies</p>
+
+<p style="text-align:left">+ stable platform (frameworks, OS)</p>
+
+<p style="text-align:left">+ has tests</p>
+
+<p style="text-align:left">+ runs on todays hardware</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 396.64px; left: 627.36px; top: 314.5px;" data-name="text-ee241d" data-block-id="d79635e0a27960e1f75e5f097fda8df7"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgb(255, 255, 255); border-width: 1px; padding: 5px;" data-fragment-index="1">
+<p style="text-align:left"><span style="color:#800000">- bad naming</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- monster methods/classes </span></p>
+
+<p style="text-align:left"><span style="color:#800000">- sprawling dependencies</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- procedural, untestable style</span></p>
+
+<p style="text-align:left"><span style="color:#800000">- deprecated frameworks</span></p>
+
+<p style="text-align:left"><span style="color:#800000"><span class="ILfuVd"><span class="hgKElc">- scripted</span></span></span></p>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-fb7135" style="height: auto;" data-block-id="fe165dd1fe079aad384b9b488840d744"><div class="sl-block-content sl-block-group-content" style="transform-origin: 506.73px 235px 0px; z-index: 16;">
+<div class="sl-block" data-block-type="shape" style="width: 847.24px; height: 33px; left: 120.55px; top: 218.75px;" data-name="shape-2a7eb5" data-block-id="e68ae56ae2635f6adb8d1cd0b2e3de1d"><div class="sl-block-style" style="z-index: 20; filter: blur(18px);"><div class="sl-block-content" data-shape-type="triangle-left" data-shape-fill-color="rgb(152, 0, 0)" data-shape-stretch="true" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 847 33"><polygon points="0,16.5 847.24,0 847.24,33" class="shape-element" fill="rgb(152, 0, 0)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 64px; left: 45.67px; top: 216.75px;" data-name="text-6fe31e" data-block-id="637469bdf6b716f73db7ba7e2c46056f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;"><p>OK</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 123.46px; left: 843.75px; top: 217.25px;" data-name="text-f4a9fd" data-block-id="b418a1f106f52f3b32182457c942c7ca"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p><span>Uh-oh! </span></p></div></div>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 199.054px; height: 263px; left: 21.023px; top: 649.879px; min-width: 1px; min-height: 1px;" data-name="image-6e737e" data-block-id="1ad43e4fdea86b6bb24701a98397d9fb"><div class="sl-block-content fragment" style="z-index: 23;" data-fragment-index="2"><img class="" data-natural-width="800" data-natural-height="1057" style="" data-lazy-loaded="" data-src="legacy/4737de0549418e850f1e4625a8c9bdf9.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 201.34px; height: 263px; left: 244.461px; top: 649.879px; min-width: 1px; min-height: 1px;" data-name="image-7ce018" data-block-id="fc942841a92f7ab14c8b8fbfd7e7c48c"><div class="sl-block-content fragment" style="z-index: 24;" data-fragment-index="3"><img class="" data-natural-width="800" data-natural-height="1045" style="" data-lazy-loaded="" data-src="legacy/1b790c8b2ca7271eeca9f543f70edf74.jpg"></div></div></section><section data-id="3b1c0cc9917f48a70603f2008e149b09"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 211px; top: 83px;" data-name="text-b49c39" data-block-id="da6a829475c13cee37ff1aa7c4d9ccac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h1>Example: VStim</h1></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="91a2568b76a131f2e9ba736902fecbbe"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="8ec22d45c4f8dba1cf9466ab3a972143"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 865.72px; left: 87.12px; top: 199.5px;" data-block-id="49d01473bb722224c517ea7b580192fd" data-name="text-e574ee"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<p class="fragment" data-fragment-index="0"><span><strong>Who</strong> wrote the software? </span><br>
+<span>1 University professor with several years of C++ experience</span><br>
+ </p>
+
+<p class="fragment" data-fragment-index="0"><span><strong>Who </strong>uses it? </span></p>
+
+<p class="fragment" data-fragment-index="0"><span>1 working group only, ca. 10-15 users</span></p>
+
+<p class="fragment" data-fragment-index="1"> </p>
+
+<p class="fragment" data-fragment-index="1"><span><strong>Where</strong> was it written? </span></p>
+
+<p class="fragment" data-fragment-index="1"><span>local development PCs, network backup, no formal version control,<br>
+not published</span></p>
+
+<p class="fragment" data-fragment-index="1"> </p>
+
+<p class="fragment" data-fragment-index="1"><span><strong>When</strong> was the software written?</span></p>
+
+<p class="fragment" data-fragment-index="1"><span>1998 to 2021</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="af0436cfba8a968a0d726ef601bdcde6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div></section><section data-id="52bb9771e7456301f72e44f8bed89377"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 211px; top: 83px;" data-name="text-b49c39" data-block-id="c9c94915643e58e636a90e622223e24a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h1>Example: VStim</h1></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="c5dced675acf28c47505cf242f7ae3a5"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="d7b4270eba68e0eee68eb136d1ac84bc"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 912.72px; left: 55.64px; top: 171px;" data-name="text-e574ee" data-block-id="291019bcf86546e76fb547b15ca9c84f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<p class="fragment" data-fragment-index="0"><span><strong>Why</strong> was the software written?</span></p>
+
+<p class="fragment" data-fragment-index="0"><span>To control dynamic psychophysical experiments involving accurate visual stimulation with morphing shapes</span></p>
+
+<p class="fragment" data-fragment-index="0"><br>
+<span><strong>Why</strong> does it need to change? </span></p>
+
+<p class="fragment" data-fragment-index="0"><span>Designed for OS that does not do too much multi-tasking, loses accuracy on modern Windows, new features</span></p>
+
+<p class="fragment" data-fragment-index="0"> </p>
+
+<p class="fragment" data-fragment-index="1"><span><strong>What</strong> does the code do and <strong>how</strong>? </span></p>
+
+<ul>
+	<li>Few, stable dependencies: DirectX 7, Microsoft Foundation Classes</li>
+	<li>C++98: raw pointers, not using standard library</li>
+	<li>grown, but relatively modular architecture, cohesive classes</li>
+	<li>documentation as Word files</li>
+	<li>manual tests only</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="9c517ef3f590881e62de07c3704e1897"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div></section><section data-id="6842bbe1849899f97d21576d0f04b789"><div class="sl-block" data-block-type="line" data-name="line-238933" style="width: auto; height: auto; left: 32px; top: 384px;" data-block-id="6f0b9f198b6939b3963a257db0724a45"><div class="sl-block-style" style="z-index: 10; filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="960" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 10;" data-line-width="2px" data-line-style="solid"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="960" height="1" viewbox="0 0 960 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="958" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="958" y2="0"></line><path style="fill: rgba(0,0,0,0);" stroke="#000000" stroke-width="2" transform="translate(958,0) rotate(90)" d="M 6 6 L 0 0 L -6 6"></path></svg></div></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-f42613" style="height: auto;" data-block-id="274606aa44339ed065d2d371079311b7"><div class="sl-block-content sl-block-group-content fragment fade-in-then-semi-out" style="transform-origin: 136.834px 484.25px 0px; z-index: 11;" data-fragment-index="0">
+<div class="sl-block" data-block-type="shape" data-name="shape-fec14c" style="width: 24px; height: 24px; left: 126px; top: 372px;" data-block-id="ef7e7df34436ee89e6fa9e369446c836"><div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgb(201, 79, 160) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(201, 79, 160)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 24"><polygon points="24,12 12,24 0,12 12,0" class="shape-element" fill="rgb(201, 79, 160)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-ac1f70" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 138px; top: 384px;" data-block-id="10a11cac5fdcb2eea3fe6d6f2600275b"><div class="sl-block-content" data-line-x1="0" data-line-y1="94.5" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="94.5" viewbox="0 0 1 94.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="94.5" x2="0" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="94.5" x2="0" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 37px; top: 492.5px; height: auto;" data-name="text-2daff8" data-block-id="3be7f56e96942493939e595c222521f1"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: center; z-index: 15; font-size: 70%;" data-placeholder-text="Text">
+<h2><strong>1</strong></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 236.667px; left: 18.5px; top: 548.5px; height: auto;" data-name="text-3744dd" data-block-id="ad634907360880934770d28c504767e2"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 14; text-align: center; font-size: 60%;" data-placeholder-text="Text">
+<p>Setup version control</p>
+
+<p>Clarify authorship &amp; licensing</p>
+</div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-2d96a5" style="height: auto;" data-block-id="57ba05765f0620962431a6c0e45a8a83"><div class="sl-block-content sl-block-group-content fragment fade-in-then-semi-out" style="transform-origin: 275px 258.25px 0px; z-index: 16;" data-fragment-index="1">
+<div class="sl-block" data-block-type="shape" style="width: 24px; height: 24px; left: 265px; top: 372px;" data-name="shape-05b447" data-block-id="8138f561ceaf638007be4b3220091222"><div class="sl-block-style" style="z-index: 18; filter: drop-shadow(rgb(201, 79, 160) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(201, 79, 160)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 24"><polygon points="24,12 12,24 0,12 12,0" class="shape-element" fill="rgb(201, 79, 160)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 277px; top: 289.5px;" data-name="line-aee647" data-block-id="b4acf513ea7c283dcf88412446cba4ef"><div class="sl-block-style" style="z-index: 17; filter: drop-shadow(rgb(0, 0, 0) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-line-x1="0" data-line-y1="94.5" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="94.5" viewbox="0 0 1 94.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="94.5" x2="0" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="94.5" x2="0" y2="0"></line></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 175.166px; top: 120.5px; height: auto;" data-name="text-2a78c2" data-block-id="a686c74e39a6eacbc28921c59beb1153"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: center; z-index: 19; font-size: 70%;" data-placeholder-text="Text">
+<h2><strong>2</strong></h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 175.166px; top: 174.5px; height: auto;" data-name="text-4e1d6f" data-block-id="14036c8647e774b86f87baa43bc3320f"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 20; text-align: center; font-size: 60%;" data-placeholder-text="Text">
+<p>Inspect structure &amp; function of code</p>
+
+<p>Identify dependencies</p>
+</div></div>
+</div></div>
+
+
+
+<div class="sl-block sl-block-group" data-block-type="group" style="height: auto;" data-name="group-866a7e" data-block-id="2d87a1f9c782f26c4e02aa02791b1fa5"><div class="sl-block-content sl-block-group-content fragment fade-in-then-semi-out" style="transform-origin: 416.168px 471.25px 0px; z-index: 21;" data-fragment-index="2">
+<div class="sl-block" data-block-type="shape" style="width: 24px; height: 24px; left: 404.334px; top: 372px;" data-name="shape-238df7" data-block-id="95c7cbc29244515b2757b167dccd8aac"><div class="sl-block-style" style="z-index: 23; filter: drop-shadow(rgb(201, 79, 160) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(201, 79, 160)" data-shape-stretch="true" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 24"><polygon points="24,12 12,24 0,12 12,0" class="shape-element" fill="rgb(201, 79, 160)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 416.334px; top: 384px;" data-name="line-dff621" data-block-id="3d212111f437437bbe6a0b6c11b26e42"><div class="sl-block-style" style="z-index: 22; filter: drop-shadow(rgb(0, 0, 0) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-line-x1="0" data-line-y1="94.5" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 22;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="94.5" viewbox="0 0 1 94.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="94.5" x2="0" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="94.5" x2="0" y2="0"></line></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 316.334px; top: 492.5px; height: auto;" data-name="text-77a191" data-block-id="28d370e9c243f324d8f29ccb6a0673b6"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: center; z-index: 25; font-size: 70%;" data-placeholder-text="Text">
+<h2><strong>3</strong></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 316.334px; top: 548.5px; height: auto;" data-name="text-c80f6c" data-block-id="ea95aaaa1e17e8437cf596deb8e6427a"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 24; text-align: center; font-size: 60%;" data-placeholder-text="Text"><p>Identify change points</p></div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" style="height: auto;" data-name="group-e39e51" data-block-id="86308e17fe471e2daa0975ab2c6cb396"><div class="sl-block-content sl-block-group-content fragment fade-in-then-semi-out" style="transform-origin: 731.834px 471.25px 0px; z-index: 26;" data-fragment-index="4">
+<div class="sl-block" data-block-type="shape" style="width: 24px; height: 24px; left: 719px; top: 372px;" data-name="shape-fabd4e" data-block-id="da5deabcf19bc9427579fe2ad67cb54f"><div class="sl-block-style" style="z-index: 28; filter: drop-shadow(rgb(201, 79, 160) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(201, 79, 160)" data-shape-stretch="true" style="z-index: 28;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 24"><polygon points="24,12 12,24 0,12 12,0" class="shape-element" fill="rgb(201, 79, 160)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 731px; top: 384px;" data-name="line-4540d1" data-block-id="446374f3bd2ad84f860bfa03e798ba13"><div class="sl-block-style" style="z-index: 27; filter: drop-shadow(rgb(0, 0, 0) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-line-x1="0" data-line-y1="94.5" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 27;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="94.5" viewbox="0 0 1 94.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="94.5" x2="0" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="94.5" x2="0" y2="0"></line></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 632px; top: 492.5px; height: auto;" data-name="text-7e71af" data-block-id="ff3e88f98f9cc810dc9f984fe160aa57"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: center; z-index: 30; font-size: 70%;" data-placeholder-text="Text">
+<h2><strong>5</strong></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 632px; top: 548.5px; height: auto;" data-name="text-9b7ec7" data-block-id="8edf7ad6f99ce8adea3993aa0fe411aa"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 29; text-align: center; font-size: 60%;" data-placeholder-text="Text"><p>Write tests</p></div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" style="height: auto;" data-name="group-9531dd" data-block-id="eca55b6bf2aaedc7f6840291034b78cb"><div class="sl-block-content sl-block-group-content fragment fade-in-then-semi-out" style="transform-origin: 572.001px 258.25px 0px; z-index: 31;" data-fragment-index="3">
+<div class="sl-block" data-block-type="shape" style="width: 24px; height: 24px; left: 562.001px; top: 372px;" data-name="shape-96b869" data-block-id="89911113176f2f20266b353e73423243"><div class="sl-block-style" style="z-index: 33; filter: drop-shadow(rgb(201, 79, 160) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(201, 79, 160)" data-shape-stretch="true" style="z-index: 33;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 24"><polygon points="24,12 12,24 0,12 12,0" class="shape-element" fill="rgb(201, 79, 160)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 574.001px; top: 289.5px;" data-name="line-545aef" data-block-id="fa2605eb7e79736806981f011c4a7fcf"><div class="sl-block-style" style="z-index: 32; filter: drop-shadow(rgb(0, 0, 0) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-line-x1="0" data-line-y1="94.5" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 32;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="94.5" viewbox="0 0 1 94.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="94.5" x2="0" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="94.5" x2="0" y2="0"></line></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 472.167px; top: 120.5px; height: auto;" data-name="text-eba752" data-block-id="c8b51a2247f99ab062799a2090513904"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: center; z-index: 34; font-size: 70%;" data-placeholder-text="Text">
+<h2><strong>4</strong></h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 472.167px; top: 174.5px; height: auto;" data-name="text-69da15" data-block-id="c0ba3ec08c8daaaf1ffc1b714c1ecc2c"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 35; text-align: center; font-size: 60%;" data-placeholder-text="Text"><p>Identify test points</p></div></div>
+</div></div>
+<div class="sl-block sl-block-group" data-block-type="group" style="height: auto;" data-name="group-f747fd" data-block-id="baf8c77e1d83a00208db19b3eacfffd1"><div class="sl-block-content sl-block-group-content fragment" style="transform-origin: 869.001px 258.25px 0px; z-index: 36;" data-fragment-index="5">
+<div class="sl-block" data-block-type="shape" style="width: 24px; height: 24px; left: 859.001px; top: 372px;" data-name="shape-c906ee" data-block-id="a2b1525e5aed38c20f9e24b39a3bec12"><div class="sl-block-style" style="z-index: 38; filter: drop-shadow(rgb(201, 79, 160) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(201, 79, 160)" data-shape-stretch="true" style="z-index: 38;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 24"><polygon points="24,12 12,24 0,12 12,0" class="shape-element" fill="rgb(201, 79, 160)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 871.001px; top: 289.5px;" data-name="line-a36683" data-block-id="2ac444b261dfbb68fd40c209a98048fb"><div class="sl-block-style" style="z-index: 37; filter: drop-shadow(rgb(0, 0, 0) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" data-line-x1="0" data-line-y1="94.5" data-line-x2="0" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 37;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="94.5" viewbox="0 0 1 94.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="94.5" x2="0" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="94.5" x2="0" y2="0"></line></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 769.167px; top: 120.5px; height: auto;" data-name="text-4bda9b" data-block-id="28679146c38bf00ced73087dfc9dd1ad"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: center; z-index: 39; font-size: 70%;" data-placeholder-text="Text">
+<h2><strong>6</strong></h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="width: 199.667px; left: 769.167px; top: 174.5px; height: auto;" data-name="text-452c90" data-block-id="6ee4ba35b26a0be1affce67039b779c0"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 40; text-align: center; font-size: 60%;" data-placeholder-text="Text"><p>Change</p></div></div>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="e12f6c644681848e31e25c6ace3faf02"><div class="sl-block-content" style="z-index: 41;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="c7213c8ca30d64fc1d3e59bb463af259"><div class="sl-block-content" style="z-index: 42;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="41deafdad9cd55e6a1428bfceb74496e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 43; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div></section><section data-id="139fcf361ec44ad31f73322118391a17">
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 124.48px; height: 44.67px; left: 890.6px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-580905" data-block-id="a100973e8dcf6386259279beefb6aab4"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="418" data-natural-height="150" style="" data-lazy-loaded="" data-src="legacy/9b28f19bc94b9933efd06be7eec1cee7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 87.4011px; height: 45.7399px; left: 785.679px; top: 11.665px; min-width: 1px; min-height: 1px;" data-name="image-e2a7e6" data-block-id="b17e591c0f29dc0371b4e2690c9e7dde"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="300" data-natural-height="157" style="" data-lazy-loaded="" data-src="legacy/3eae9672d1ddfd991f905f58952aa73d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 415.08px; top: 741px;" data-name="text-4ee4ee" data-block-id="7535dfd2722f79b26a42c21c89154581"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: right; font-size: 75%;"><p><span style="font-size:0.9em">Embracing Legacy Research Code | deRSE 2023</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 881px; left: 93px; top: 104px;" data-name="text-dff136" data-block-id="4948cbc3fd520fbf88de24d4bc98a3ca"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;"><h2>Should we embrace legacy research code?</h2></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 704.24px; left: 159.88px; top: 167px;" data-name="text-12e083" data-block-id="4c57acb8246678416d844919682cdf40"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: left;" data-fragment-index="0">
+<p class="visible"><span><strong>Who</strong> wrote/will write the software?<br>
+<strong>Who </strong>uses it?</span></p>
+
+<p class="visible"><span><strong>Where</strong> was it written?</span></p>
+
+<p class="visible"><span><strong>When</strong> was the software written?</span></p>
+
+<p class="visible"><span><strong>Why</strong> was the software written?</span><br>
+<span><strong>Why</strong> does it need to change?</span></p>
+
+<p class="visible"><span><strong>What</strong> does the code do and <strong>how</strong>? </span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 881px; left: 93px; top: 476px;" data-block-id="460e56832e27f0d28595d9f22f53c445" data-name="text-7f273c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left;" data-fragment-index="1"><h2>IF SO, HOW?</h2></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 609px; top: 440px;" data-name="text-c3c73e" data-block-id="0dc1d0e49e1edb68cee0dd49cced847b"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;" data-fragment-index="3"><p>Thank you!</p></div></div>
+<div class="sl-block sl-block-group" data-block-type="group" data-name="group-3a4eec" data-block-id="0bb54beb3515168808251df20520264c" style="height: auto;"><div class="sl-block-content sl-block-group-content" style="transform-origin: 483.63px 645.5px 0px; z-index: 16;"><div class="sl-block" data-block-type="text" style="height: auto; width: 669.5px; left: 148.88px; top: 536.5px;" data-block-id="f4270aaf48e857f042fe137ce717bcb7" data-name="text-ba9363"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; text-align: left;" data-fragment-index="2"><ol>
+	<li>
+<strong>Clarify </strong>authorship, licensing, version control</li>
+	<li class="visible">
+<strong>Understand </strong>the code</li>
+	<li>
+<strong>Identify </strong>change and test points</li>
+	<li>
+<strong>Write </strong>tests</li>
+	<li><strong>Change</strong></li>
+	<li><strong>GOTO 2.</strong></li>
+</ol></div></div></div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":2552958,"slug":"legacy","title":"Embracing legacy research code","description":"Should we? If so, how?","width":1024,"height":768,"margin":0.05,"visibility":"self","published_at":"2023-02-10T08:37:40.416Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/3dcd9952c89b73f15c753f70f0619c82/thumb.jpg?1676025001","view_count":0,"user":{"id":85988,"username":"joschaschmiedt","name":"Joscha Schmiedt","description":null,"thumbnail_url":"https://www.gravatar.com/avatar/910b1f023b6ba234ef2941a561103984?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"lite","team_id":null,"settings":{"id":56937123,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"none","transition":"none","theme_id":null,"theme_font":"overpass2","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":false,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":18,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1676035859251,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{"9707125f89f4c3a77f15fb88bbd0fc1e":"To answer the question whether we should embrace legacy research code, that is re-use and modify, and not re-write, \n\n\nI think it makes sense to ask yourself the classical W questions\n\nFirst questions are easier to answer and don't require too much research\n\nThe answers will help you to make an estimate about the feasibility of re-using the old code, and how much work it may be.\n\n","8119d3f400a76095112b2b5d68c958b8":"To give you a more visual impression\n\nhttps://arstechnica.com/gadgets/2022/03/a-brief-tour-of-the-pdp-11-the-most-influential-minicomputer-of-all-time/\n\nPDP11 http://madrona.ca/e/pdp11hack/index.html\n\nhttps://commons.wikimedia.org/wiki/File:Java_applet.png\n\nhttps://klusters.sourceforge.net/UserManual/using-klusters.html\n\nhttps://selectfrom.dev/deep-dive-into-dask-distributed-scheduler-9fdb3b36b7c7"}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 1024,
+				height: 768,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "none",
+				backgroundTransition: "none",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
